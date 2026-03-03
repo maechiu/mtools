@@ -80,5 +80,3 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 ```
-
-> `bun` のインストーラが `~/.bashrc` へ PATH を自動追記するため、スクリプト側での追加処理は不要です。
