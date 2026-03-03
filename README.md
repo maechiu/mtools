@@ -12,6 +12,10 @@
 以下がインストール済みであること。
 
 - `curl`
+- `git`
+
+以下の権限があること。
+
 - `sudo` 権限
 
 ## インストール
@@ -45,6 +49,18 @@ source ~/.bashrc
 | [fd-find](https://github.com/sharkdp/fd)         | `fd`     | `find` の高速・直感的な代替。シンプルな構文でファイルやディレクトリを検索できる      |
 | [git-delta](https://github.com/dandavison/delta) | `delta`  | `git diff` や `git log` の差分表示をシンタックスハイライト付きで見やすくするビューア |
 
+### JavaScript ランタイム
+
+| ツール                 | コマンド | 説明                                                                                                              |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| [Bun](https://bun.sh/) | `bun`    | 高速な JavaScript / TypeScript ランタイム・バンドラー・テストランナー・パッケージマネージャのオールインワンツール |
+
+### バージョン管理
+
+| ツール                                     | コマンド | 説明                                                                                                            |
+| ------------------------------------------ | -------- | --------------------------------------------------------------------------------------------------------------- |
+| [anyenv](https://github.com/anyenv/anyenv) | `anyenv` | `pyenv` / `nodenv` / `rbenv` など複数の `*env` 系バージョンマネージャをまとめて管理するメタバージョンマネージャ |
+
 ### シェル環境
 
 | ツール                           | 説明                                                                                                                     |
@@ -59,4 +75,10 @@ source ~/.bashrc
 ```bash
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
 ```
+
+> `bun` のインストーラが `~/.bashrc` へ PATH を自動追記するため、スクリプト側での追加処理は不要です。

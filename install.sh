@@ -31,6 +31,21 @@ if ! command -v direnv &>/dev/null; then
   sudo apt-get install -y direnv
 fi
 
+# ── Bun ───────────────────────────────────────
+if ! command -v bun &>/dev/null; then
+  echo "Installing bun..."
+  curl -fsSL https://bun.sh/install | bash
+fi
+
+echo "bun: $(bun --version)"
+
+# ── anyenv ───────────────────────────────────
+if [ ! -d "$HOME/.anyenv" ]; then
+  echo "Installing anyenv..."
+  git clone https://github.com/anyenv/anyenv ~/.anyenv
+  ~/.anyenv/bin/anyenv install --init
+fi
+
 # ── Shell hooks (.bashrc) ─────────────────────
 SHELL_RC="$HOME/.bashrc"
 
@@ -42,6 +57,12 @@ fi
 if ! grep -q "direnv hook" "$SHELL_RC"; then
   echo 'eval "$(direnv hook bash)"' >> "$SHELL_RC"
   echo "Added direnv to $SHELL_RC"
+fi
+
+if ! grep -q "anyenv init" "$SHELL_RC"; then
+  echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> "$SHELL_RC"
+  echo 'eval "$(anyenv init -)"' >> "$SHELL_RC"
+  echo "Added anyenv to $SHELL_RC"
 fi
 
 echo "Done! Run: source ~/.bashrc"
