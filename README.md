@@ -48,6 +48,7 @@ source ~/.bashrc
 | [ripgrep](https://github.com/BurntSushi/ripgrep) | `rg`     | `grep` の高速な代替。`.gitignore` を自動で考慮しながら再帰的なテキスト検索ができる   |
 | [fd-find](https://github.com/sharkdp/fd)         | `fd`     | `find` の高速・直感的な代替。シンプルな構文でファイルやディレクトリを検索できる      |
 | [git-delta](https://github.com/dandavison/delta) | `delta`  | `git diff` や `git log` の差分表示をシンタックスハイライト付きで見やすくするビューア |
+| [zellij](https://zellij.dev/)                    | `zellij` | Rust 製のターミナルマルチプレクサ。直感的な UI でペイン・タブ・セッション管理ができる |
 
 ### JavaScript ランタイム
 
@@ -67,6 +68,16 @@ source ~/.bashrc
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | [starship](https://starship.rs/) | 高速でカスタマイズ可能なシェルプロンプト。`~/.bashrc` に自動でフックが追加される                                         |
 | [direnv](https://direnv.net/)    | ディレクトリに入ると `.envrc` の環境変数を自動で読み込み、離れると解除するツール。`~/.bashrc` に自動でフックが追加される |
+
+## アンインストール
+
+対話型メニューから削除したいツールを複数選択してアンインストールできます。
+
+```bash
+bash uninstall.sh
+```
+
+番号を入力して選択/解除、`Enter` で実行します。`a` で全選択、`n` で全解除、`q` でキャンセルします。
 
 ## インストール後の状態
 

@@ -23,7 +23,8 @@ cargo binstall -y \
   ripgrep \
   fd-find \
   git-delta \
-  starship
+  starship \
+  zellij
 
 # ── direnv ────────────────────────────────────
 if ! command -v direnv &>/dev/null; then
